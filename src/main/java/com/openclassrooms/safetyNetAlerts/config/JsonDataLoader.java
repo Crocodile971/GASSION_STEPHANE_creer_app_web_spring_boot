@@ -16,9 +16,9 @@ import com.openclassrooms.safetyNetAlerts.model.Person;
 
 public class JsonDataLoader {
 
-	private static final Logger logger = LogManager.getLogger("JsonDataLoader");
+	private static final Logger logger = LogManager.getLogger(JsonDataLoader.class);
 
-	public List<Person> loadPersonData(String resourcePath) { 
+	public List<Person> loadPersonData(String resourcePath) {
 
 		ObjectMapper objectMapper = new ObjectMapper();
 		Resource ressource = new ClassPathResource(resourcePath);
@@ -31,15 +31,14 @@ public class JsonDataLoader {
 			return objectMapper.convertValue(rootNode, typeReference);
 
 		} catch (IOException e) {
-			e.printStackTrace();
 			logger.error("Cannot display data.json file ", e);
+			e.printStackTrace();
 
 		}
 		return null;
 	}
-	
-	
-	public List<FireStation> loadFireStationData(String resourcePath) { 
+
+	public List<FireStation> loadFireStationData(String resourcePath) {
 
 		ObjectMapper objectMapper = new ObjectMapper();
 		Resource ressource = new ClassPathResource(resourcePath);
@@ -52,10 +51,10 @@ public class JsonDataLoader {
 			return objectMapper.convertValue(rootNode, typeReference);
 
 		} catch (IOException e) {
-			e.printStackTrace();
 			logger.error("Cannot display data.json file ", e);
+			e.printStackTrace();
 
-		} 
+		}
 		return null;
 	}
 

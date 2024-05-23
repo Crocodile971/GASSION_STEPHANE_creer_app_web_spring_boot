@@ -11,8 +11,12 @@ public interface PersonDAO {
 
 	public List<Person> findAll();
 	
-	Person savePerson(Person person);
+	public Person savePerson(Person person);
 	
-	public void deletePerson(String firstName, String lastName);
+	public Person findByFirstNameAndLastName(String firstName, String lastName);
+	
+	public Person updatePerson(Person personFound, Person personDetails);
 
+	public void deletePerson(String firstName, String lastName);
 }
+ 
