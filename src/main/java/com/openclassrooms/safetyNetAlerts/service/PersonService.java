@@ -83,7 +83,10 @@ public class PersonService {
 	public void deletePerson(String firstName, String lastName) {
 
 		logger.debug("Deleting for firstName {} and lastName {} ", firstName, lastName);
+
 		personDao.deletePerson(firstName, lastName);
+
+		logger.info("successfully Deleting person {} {} {} ", firstName, lastName);
 	}
 
 }
