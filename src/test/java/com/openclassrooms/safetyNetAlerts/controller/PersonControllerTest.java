@@ -45,7 +45,7 @@ public class PersonControllerTest {
 	@Test
 	public void testUpdatePerson() throws Exception {
 
-		mockMvc.perform(put("/person/{firstName}{lastName}", "steeve", "jobs").contentType(MediaType.APPLICATION_JSON)
+		mockMvc.perform(put("/person/{firstName} {lastName}", "steeve", "jobs").contentType(MediaType.APPLICATION_JSON)
 				.content(jsonString(new Person("steeve", "jobs", "15 rue des trolls", "culver", "95700", "123-456-789",
 
 						"job@email.com")))
@@ -56,7 +56,7 @@ public class PersonControllerTest {
 	@Test
 	public void testDeletePerson() throws Exception {
 
-		mockMvc.perform(delete("/person/{firstName}{lastName}", "steeve", "jobs")).andExpect(status().isOk());
+		mockMvc.perform(delete("/person/{firstName} {lastName}", "steeve", "jobs")).andExpect(status().isOk());
 	}
 
 	public static String jsonString(final Person person) {

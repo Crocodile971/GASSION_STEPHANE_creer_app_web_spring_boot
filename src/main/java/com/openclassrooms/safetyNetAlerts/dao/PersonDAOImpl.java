@@ -59,11 +59,12 @@ public class PersonDAOImpl implements PersonDAO {
 
 			Person person = persons.stream()
 					.filter(personFilterBy -> personFilterBy.getFirstName().equalsIgnoreCase(firstName)
-							&& personFilterBy.getLastName().equalsIgnoreCase(lastName)).findFirst().orElse(null);
+							&& personFilterBy.getLastName().equalsIgnoreCase(lastName))
+					.findFirst().orElse(null);
 
 			logger.info("We find {} {} successfully {} ", firstName, lastName, person);
-			
-			return person;     
+
+			return person;
 
 		} catch (NullPointerException e) {
 			logger.error("failed find By First Name And LastName ", e);
@@ -96,7 +97,6 @@ public class PersonDAOImpl implements PersonDAO {
 			personFound.setEmail(personDetails.getEmail());
 		}
 
-		
 		logger.info("Updating person successfully : {} {} . ", personFound.getFirstName(), personFound.getLastName());
 		return personFound;
 	}

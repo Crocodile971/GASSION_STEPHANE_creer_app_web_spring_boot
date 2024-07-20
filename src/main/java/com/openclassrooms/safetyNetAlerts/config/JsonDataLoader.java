@@ -12,6 +12,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.openclassrooms.safetyNetAlerts.model.FireStation;
+import com.openclassrooms.safetyNetAlerts.model.MedicalRecord;
 import com.openclassrooms.safetyNetAlerts.model.Person;
 
 public class JsonDataLoader {
@@ -47,6 +48,26 @@ public class JsonDataLoader {
 		};
 		try {
 			JsonNode rootNode = objectMapper.readTree(ressource.getInputStream()).path("firestations");
+
+			return objectMapper.convertValue(rootNode, typeReference);
+
+		} catch (IOException e) {
+			logger.error("Cannot display data.json file ", e);
+			e.printStackTrace();
+
+		}
+		return null;
+	}
+
+	public List<MedicalRecord> loadMedicalRecordData(String resourcePath) {
+
+		ObjectMapper objectMapper = new ObjectMapper();
+		Resource ressource = new ClassPathResource(resourcePath);
+
+		TypeReference<List<MedicalRecord>> typeReference = new TypeReference<List<MedicalRecord>>() {
+		};
+		try {
+			JsonNode rootNode = objectMapper.readTree(ressource.getInputStream()).path("medicalrecords");
 
 			return objectMapper.convertValue(rootNode, typeReference);
 

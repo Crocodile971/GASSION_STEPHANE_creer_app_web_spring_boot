@@ -11,7 +11,12 @@ public interface FireStationDAO {
 
 	public List<FireStation> findAll();
 
-	FireStation saveFireStation(FireStation fireStation);
+	public FireStation saveFireStation(FireStation fireStation);
 	
-	public void deleteFireStation(String address, String station);
-}
+	public FireStation findByAddressAndStation(String address, String station);
+
+	public FireStation updateFireStation(FireStation fireStationFound, FireStation stationDetails);
+	
+	public void deleteFireStation(String address, String station); 
+} 
+ 

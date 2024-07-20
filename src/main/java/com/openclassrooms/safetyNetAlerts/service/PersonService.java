@@ -10,13 +10,12 @@ import org.springframework.stereotype.Service;
 import com.openclassrooms.safetyNetAlerts.dao.PersonDAO;
 import com.openclassrooms.safetyNetAlerts.model.Person;
 
-import lombok.Data;
 
-@Data
 @Service
 public class PersonService {
 
 	private static final Logger logger = LogManager.getLogger(PersonService.class);
+	
 	@Autowired
 	private PersonDAO personDao;
 
@@ -26,7 +25,7 @@ public class PersonService {
 	 * @return all persons of the list.
 	 */
 	public List<Person> getPersons() {
-		logger.info("List of all persons");
+		logger.info("List of all persons"); 
 		return personDao.findAll();
 	}
 
@@ -86,7 +85,7 @@ public class PersonService {
 
 		personDao.deletePerson(firstName, lastName);
 
-		logger.info("successfully Deleting person {} {} {} ", firstName, lastName);
+		logger.info("successfully Deleting person {} {} ", firstName, lastName);
 	}
 
 }
